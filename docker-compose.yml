@@ -1,8 +1,8 @@
 version: '3'
 services:
-  jenkins-master.dev.internal.example.com:
+  jenkins-master.openlogic.local:
     build: jenkins-master
-    image: danieleagle/jenkins-master:2.46.1-alpine
+    image: jenkins-master:2.46.1-alpine
     container_name: Jenkins-Master
     restart: always
     ports:
@@ -11,22 +11,24 @@ services:
       - ./jenkins-master/volume_data/logs:/var/log/jenkins
       - ./jenkins-master/volume_data/home:/var/jenkins_home
     depends_on:
-      - jenkins-nginx.dev.internal.example.com
-  jenkins-nginx.dev.internal.example.com:
+      - jenkins-nginx.openlogic.local
+  jenkins-nginx.openlogic.local:
     build: jenkins-nginx
-    image: danieleagle/jenkins-nginx:1.11.12-alpine
+    image: jenkins-nginx:1.11.12-alpine
     container_name: Jenkins-NGINX
     restart: always
     ports:
       - "51205:443"
     volumes:
       - ./jenkins-nginx/volume_data/ssl:/etc/ssl/certs/nginx:ro
-  jenkins-slave.dev.internal.example.com:
+  jenkins-slave.openlogic.local:
     build: jenkins-slave
-    image: danieleagle/jenkins-slave:8u121-jdk-alpine
+    image: jenkins-slave:8u121-jdk-alpine
     container_name: Jenkins-Slave
     depends_on:
-      - jenkins-master.dev.internal.example.com
+      - jenkins-master.openlogic.local
+#    volumes:
+#      - ./jenkins-slave/volume_data/ssl:/etc/ssl/java/truststore:ro
 networks:
   default:
     external:
