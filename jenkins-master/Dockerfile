@@ -1,5 +1,5 @@
 FROM jenkins:2.46.1-alpine
-MAINTAINER Daniel Eagle
+MAINTAINER william.crowell@openlogic.com 
 
 # Switch to root in order to have right permissions
 # to get things done

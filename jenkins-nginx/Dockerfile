@@ -1,5 +1,5 @@
 FROM nginx:1.11.12-alpine
-MAINTAINER Daniel Eagle
+MAINTAINER william.crowell@openlogic.com 
 
 # Remove unnecessary default file
 RUN rm /etc/nginx/conf.d/default.conf

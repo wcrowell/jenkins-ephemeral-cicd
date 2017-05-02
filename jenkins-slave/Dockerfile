@@ -1,5 +1,5 @@
 FROM openjdk:8u121-jdk-alpine
-MAINTAINER Daniel Eagle
+MAINTAINER william.crowell@openlogic.com 
 
 # Add and update ca-certificates
 RUN apk update \
