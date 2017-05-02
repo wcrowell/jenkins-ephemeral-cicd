@@ -28,9 +28,12 @@ ARG trustStore=/etc/ssl/java/truststore
 # Create folder to store new cacerts location
 RUN mkdir -p ${trustStore}
 
+COPY volume_data/ssl/cacerts ${trustStore}
+
 # Apply permissions
 RUN chown -R $JENKINS_USER $JENKINS_HOME ${trustStore} \
-  && chgrp -R $JENKINS_USER $JENKINS_HOME ${trustStore}
+  && chgrp -R $JENKINS_USER $JENKINS_HOME ${trustStore} \
+  && chmod -v 0444 ${trustStore}/cacerts
 
 # Create volume to persist data
 VOLUME /etc/ssl/java/truststore
