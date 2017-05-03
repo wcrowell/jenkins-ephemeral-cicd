@@ -3,7 +3,7 @@ MAINTAINER william.crowell@openlogic.com
 
 # Add and update ca-certificates
 RUN apk update \
-  && apk add --no-cache openssl
+  && apk add --no-cache git openssl
 
 # Define env variables and arguments
 ENV JENKINS_HOME=/home/jenkins
