@@ -13,7 +13,7 @@ set -e
 REF=/usr/share/jenkins/ref/plugins
 mkdir -p $REF
 
-JENKINS_UC=http://updates.jenkins.io/download
+JENKINS_UC_DOWNLOAD=http://updates.jenkins.io/download
 
 while read spec || [ -n "$spec" ]; do
     plugin=(${spec//:/ });
