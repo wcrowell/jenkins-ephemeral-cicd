@@ -1,4 +1,4 @@
-FROM jenkins:2.46.1-alpine
+FROM jenkins:2.46.2-alpine
 MAINTAINER william.crowell@openlogic.com 
 
 # Switch to root in order to have right permissions
